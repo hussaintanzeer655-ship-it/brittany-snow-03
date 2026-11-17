@@ -1,0 +1,5 @@
+(() => {const thumbs=document.getElementById('thumbs'); const modal=document.getElementById('modal'); const big=document.getElementById('bigImg'); const closeBtn=document.getElementById('close'); // create sample slides
+for(let i=1;i<=9;i++){ const d=document.createElement('div'); d.className='thumb'; d.tabIndex=0; d.setAttribute('aria-label','Slide '+i); d.style.cursor='pointer'; d.style.background='linear-gradient(135deg,hsl('+((i*40)%360)+',70%,60%),hsl('+((i*60)%360)+',60%,50%)'; d.addEventListener('click',()=>{ big.src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><rect width="800" height="500" fill="%23777"/><text x="400" y="250" text-anchor="middle" fill="white" font-family="Arial" font-size="28">Slide '+i+'</text></svg>'; modal.classList.remove('hidden'); }); thumbs.appendChild(d); }
+closeBtn.addEventListener('click',()=>modal.classList.add('hidden'));
+modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.add('hidden')});
+window.addEventListener('keydown',e=>{ if(e.key==='Escape') modal.classList.add('hidden'); }); })();
